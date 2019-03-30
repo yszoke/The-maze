@@ -41,6 +41,7 @@ public class MyMazeGenerator extends AMazeGenerator {
 
        // maze.myMaze[x][y] = 0;
 
+
             if (maze.myMaze[x][y] == WALL) {
                 maze.myMaze[f[0]][f[1]] = PASSAGE;
                 maze.myMaze[x][y] = PASSAGE;
