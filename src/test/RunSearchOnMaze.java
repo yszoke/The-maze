@@ -18,6 +18,7 @@ public class RunSearchOnMaze {
         solveProblem(searchableMaze, new BestFirstSearch());
     }
 
+
     private static void solveProblem(ISearchable domain, ISearchingAlgorithm searcher) {
 //Solve a searching problem with a searcher
             Solution solution = searcher.solve(domain);
