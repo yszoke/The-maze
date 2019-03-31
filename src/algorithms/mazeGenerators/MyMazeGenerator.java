@@ -16,8 +16,6 @@ public class MyMazeGenerator extends AMazeGenerator {
     //private final int col;
     //private final int row;
 
-
-
     @Override
     public Maze generate(int row, int col) {
 
