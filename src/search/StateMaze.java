@@ -59,6 +59,11 @@ public class StateMaze extends AState {
     public boolean getPartOfPath() { return partOfPath; }
     public boolean getVisited() { return visited; }
 
+    @Override
+    public boolean equals(Object obj) {
+        return (this.row==((StateMaze)obj).getRowIndex() &&  this.col==((StateMaze)obj).getColumnIndex());
+
+    }
 
     @Override
     public String toString() {

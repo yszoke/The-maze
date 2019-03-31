@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 public interface ISearchable {
 
-    AState getStartState();
-    AState getGoalState();
-    ArrayList<AState> getAllNeighbors(AState s);
+    public AState getStartState();
+    public AState getGoalState();
+
+    public ArrayList<AState> getAllNeighbors(AState s);
     //AState getState();
 }
