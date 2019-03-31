@@ -7,4 +7,5 @@ public interface ISearchable {
     AState getStartState();
     AState getGoalState();
     ArrayList<AState> getAllNeighbors(AState s);
+    //AState getState();
 }

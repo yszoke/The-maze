@@ -9,6 +9,7 @@ public class Maze {
     algorithms.mazeGenerators.Position start=new Position();
     algorithms.mazeGenerators.Position end=new Position();
     Position positions[][];
+    boolean visited[][];
 
     public Maze(int row, int col) {
         int maze[][] = new int[row][col];
@@ -21,6 +22,20 @@ public class Maze {
         end.setCol(col-1);
         this.positions=new Position[row][col];
         //System.out.println(row);
+        this.visited=new boolean[row][col];
+
+    }
+
+    public boolean getVisited(int row, int col) {
+        return visited[row][col];
+    }
+
+    public void setVisited(int row, int col, boolean visited) {
+        this.visited[row][col] = visited;
+    }
+
+    public int getMyMaze(int row, int col) {
+        return myMaze[row][col];
     }
 
     public void setMyMaze(int row, int col, int value) {
@@ -41,6 +56,14 @@ public class Maze {
 
     public algorithms.mazeGenerators.Position getGoalPosition() {
         return end;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getCol() {
+        return col;
     }
 
     public void print() {
