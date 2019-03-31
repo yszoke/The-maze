@@ -49,7 +49,7 @@ public class Maze {
                 if (i == start.getRowIndex() && j == start.getColumnIndex()) {
                     System.out.print(String.format("S"));
                 } else if (i == end.getRowIndex() && j == end.getColumnIndex()) {
-                    System.out.println(String.format("E"));
+                    System.out.print(String.format("E"));
                 } else {
                     System.out.print(String.format("%s", myMaze[i][j]));
                 }

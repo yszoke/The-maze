@@ -16,6 +16,7 @@ public class MyMazeGenerator extends AMazeGenerator {
     //private final int col;
     //private final int row;
 
+
     @Override
     public Maze generate(int row, int col) {
 
@@ -25,21 +26,26 @@ public class MyMazeGenerator extends AMazeGenerator {
         final Random random = new Random();
         int x = random.nextInt(col);
         int y = random.nextInt(row);
-        neighbors.add(new int[]{x, y, x, y});
-        maze.myMaze= new int[row][col];
-        maze.setAllMaze(row,col,1); //init all maze with value 1
+        Position mystart = new Position(x, y);
+        maze.start = mystart;
+        Position myend = new Position(x, y);
+        maze.end = myend;
 
-       // maze.initPositions(maze.positions);
-       // Position current = new Position(x, y);
-      //  maze.setMyMaze(current.getRowIndex(),current.getColumnIndex(),0);
-       // current.setVisited(true); //step 1
+        neighbors.add(new int[]{x, y, x, y});
+        maze.myMaze = new int[row][col];
+        maze.setAllMaze(row, col, 1); //init all maze with value 1
+
+        // maze.initPositions(maze.positions);
+        // Position current = new Position(x, y);
+        //  maze.setMyMaze(current.getRowIndex(),current.getColumnIndex(),0);
+        // current.setVisited(true); //step 1
 
         while (!neighbors.isEmpty()) {
             final int[] f = neighbors.remove(random.nextInt(neighbors.size()));
             x = f[2];
             y = f[3];
 
-       // maze.myMaze[x][y] = 0;
+            // maze.myMaze[x][y] = 0;
 
             if (maze.myMaze[x][y] == WALL) {
                 maze.myMaze[f[0]][f[1]] = PASSAGE;
@@ -53,11 +59,14 @@ public class MyMazeGenerator extends AMazeGenerator {
                 if (y < row - 2 && maze.myMaze[x][y + 2] == WALL)
                     neighbors.add(new int[]{x, y + 1, x, y + 2});
             }
+            maze.end.setRow(f[2]);
+            maze.end.setCol(f[3]);
         }
 
         return maze;
     }
 }
+
 
         /*
         Maze maze = new Maze(row, col);
