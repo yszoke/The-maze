@@ -1,7 +1,12 @@
 package search;
 
+import java.util.ArrayList;
+
 public interface ISearchingAlgorithm {
 
-    int search(ISearchable s );
-    int getNumOfVisitedNodes();
+    ArrayList<AState> search(ISearchable s );
+    //int getNumOfVisitedNodes();
+    Solution solve(ISearchable domain);
+    String getName();
+    int getNumberOfNodesEvaluated();
 }

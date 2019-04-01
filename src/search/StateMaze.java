@@ -32,7 +32,8 @@ public class StateMaze extends AState {
         this.distance = dis;
     }
 
-    public void setRow(int row) {this.row = row; }
+    public void setRow(int row) {
+        this.row = row; }
     public void setCol(int col) {
         this.col = col;
     }
