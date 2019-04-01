@@ -7,7 +7,7 @@ public interface ISearchable {
     public AState getStartState();
     public AState getGoalState();
 
-    public ArrayList<AState> getAllNeighbors(AState s);
+    public ArrayList<AState> getAllPossibleStates(AState s);
 
     void setVisited(ISearchable s, AState source, boolean b);
     //AState getState();

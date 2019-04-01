@@ -8,6 +8,7 @@ public class StateMaze extends AState {
     boolean visited;
     int value;
     int distance;
+    int cost;
 
     public StateMaze() {
         this.row = 0;
@@ -32,8 +33,7 @@ public class StateMaze extends AState {
         this.distance = dis;
     }
 
-    public void setRow(int row) {
-        this.row = row; }
+    public void setRow(int row) {this.row = row; }
     public void setCol(int col) {
         this.col = col;
     }
@@ -46,8 +46,9 @@ public class StateMaze extends AState {
     public void setDistance(int dis) {
         this.distance = dis;
     }
-    public void setVisited(boolean visit) { this.visited = visit;
-    }
+    public void setVisited(boolean visit) { this.visited = visit;}
+    public void setCost (int cos) { this.cost = cos; }
+
 
     public int getRowIndex() {
         return row;
@@ -59,6 +60,7 @@ public class StateMaze extends AState {
     public int getValue() { return value; }
     public boolean getPartOfPath() { return partOfPath; }
     public boolean getVisited() { return visited; }
+    public int getCost() { return cost; }
 
     @Override
     public boolean equals(Object obj) {

@@ -34,7 +34,7 @@ public class BreadthFirstSearch implements ISearchingAlgorithm {
                 return statesList;
             }
             // gets neighbors of current
-            ArrayList<AState> neighbors = s.getAllNeighbors(current);
+            ArrayList<AState> neighbors = s.getAllPossibleStates(current);
             // iterates through set of all neighbors (nice java syntax)
             for (AState neighbor : neighbors) {
                 // checks for exit

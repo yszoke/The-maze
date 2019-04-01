@@ -28,7 +28,7 @@ public class SearchableMaze implements ISearchable {
         return GoalState;
     }
 
-    public ArrayList<AState> getAllNeighbors(AState curr) {
+    public ArrayList<AState> getAllPossibleStates(AState curr) {
         StateMaze current = (StateMaze) curr;
         ArrayList<AState> neighbors = new ArrayList<AState>();
         //ArrayList<AState> neighbors = new ArrayList<AState>();
@@ -50,7 +50,8 @@ public class SearchableMaze implements ISearchable {
         // checks North East
         if (current.getRowIndex() > 0 && current.getColumnIndex()<maze.getCol() - 1&&
                 maze.getMyMaze(current.getRowIndex()-1, current.getColumnIndex()+1) == 0 &&
-                maze.getVisited(current.getRowIndex()-1, current.getColumnIndex()+1) == false&& !neighbors.contains(northEast)) {
+                maze.getVisited(current.getRowIndex()-1, current.getColumnIndex()+1) == false&& !neighbors.contains(northEast)&&
+                (maze.getMyMaze(current.getRowIndex()-1, current.getColumnIndex()) == 0 || maze.getMyMaze(current.getRowIndex(), current.getColumnIndex()+1) == 0)) {
             neighbors.add(new StateMaze(current.getRowIndex()-1, current.getColumnIndex()+1, current.distance + 1));
         }
         // checks East
@@ -61,7 +62,8 @@ public class SearchableMaze implements ISearchable {
         // checks South East
         if (current.getRowIndex()< maze.getRow() - 1 && current.getColumnIndex()<maze.getCol() - 1
                 && maze.getMyMaze(current.getRowIndex()+1, current.getColumnIndex()+1) == 0 &&
-                maze.getVisited(current.getRowIndex()+1, current.getColumnIndex()+1) == false && !neighbors.contains(southeast)) {
+                maze.getVisited(current.getRowIndex()+1, current.getColumnIndex()+1) == false && !neighbors.contains(southeast)&&
+                (maze.getMyMaze(current.getRowIndex()+1, current.getColumnIndex()) == 0 || maze.getMyMaze(current.getRowIndex(), current.getColumnIndex()+1) == 0)) {
             neighbors.add(new StateMaze(current.getRowIndex()+1, current.getColumnIndex()+1, current.distance + 1));
         }
         // checks South
@@ -72,7 +74,8 @@ public class SearchableMaze implements ISearchable {
         // checks South West
         if (current.getRowIndex() < maze.getRow() - 1 && current.getColumnIndex()>0 &&
                 maze.getMyMaze(current.getRowIndex()+1, current.getColumnIndex()-1) == 0 &&
-                maze.getVisited(current.getRowIndex() + 1, current.getColumnIndex()-1) == false && !neighbors.contains(southwest)) {
+                maze.getVisited(current.getRowIndex() + 1, current.getColumnIndex()-1) == false && !neighbors.contains(southwest) &&
+                (maze.getMyMaze(current.getRowIndex()+1, current.getColumnIndex()) == 0 || maze.getMyMaze(current.getRowIndex(), current.getColumnIndex()-1) == 0)) {
             neighbors.add(new StateMaze(current.getRowIndex()+1, current.getColumnIndex()-1, current.distance + 1));
         }
         // checks West
@@ -83,7 +86,8 @@ public class SearchableMaze implements ISearchable {
         // checks North West
         if (current.getRowIndex()>0 && current.getColumnIndex()>0 &&
                 maze.getMyMaze(current.getRowIndex()-1, current.getColumnIndex()-1) == 0 &&
-                maze.getVisited(current.getRowIndex()-1, current.getColumnIndex()-1) == false && !neighbors.contains(northwest)) {
+                maze.getVisited(current.getRowIndex()-1, current.getColumnIndex()-1) == false && !neighbors.contains(northwest) &&
+                (maze.getMyMaze(current.getRowIndex()-1, current.getColumnIndex()) == 0 || maze.getMyMaze(current.getRowIndex(), current.getColumnIndex()-1) == 0)) {
             neighbors.add(new StateMaze(current.getRowIndex()-1, current.getColumnIndex()-1, current.distance + 1));
         }
 

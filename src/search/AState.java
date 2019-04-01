@@ -6,6 +6,7 @@ public class AState {
     boolean visited;
     int distance;
 
+
     public AState() {
 
     }
@@ -33,6 +34,8 @@ public class AState {
     public void setDistance(int dis) {
         this.distance = dis;
     }
+
+
 
     /*
         public void setRow(int row) {this.row = row; }
