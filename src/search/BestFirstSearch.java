@@ -17,6 +17,13 @@ public class BestFirstSearch extends BreadthFirstSearch implements ISearchingAlg
             AState source = s.getStartState();
             // our data structure T will be the maze itself
             // declares new queue
+
+        ////////////////// ????????????????????????????????????????????????????// ?????////////////////
+        Comparator<int> comparator = new costComparator();
+        PriorityQueue<AState> queue = new PriorityQueue<AState>(comparator);
+        ////////////////// ????????????????????????????????????????????????????// ?????////////////////
+
+
             PriorityQueue<AState> Q = new PriorityQueue<AState>(new costComparator());
             // pushes source to Q
             Q.offer(source);
@@ -56,14 +63,29 @@ public class BestFirstSearch extends BreadthFirstSearch implements ISearchingAlg
         } null;
     }
 
+    public PriorityQueue(Comparator<AState> comparator) {
+
+
+    }
 
 
     @Override
     public String getName() {
         return "BestFirstSearch";
     }
-}
 
+//////////////////////////////////////////// ??????????????????????????????????????????????????????
+    public int costComparator(AState other){
+        return (this.getCost().compareTo((Integer)other.getCost());
+    }
+
+
+    @Override
+    public int compareTo(AState other)
+            {
+            return Integer.compare(getCost(), other.getCost());
+            }
+    /*
 class costComparator implements Comparator<AState>{
 
     // Overriding compare()method of Comparator
@@ -77,4 +99,27 @@ class costComparator implements Comparator<AState>{
 
         return 0;
     }
+    */
+        }
+
+public class costComparator implements Comparator<int>
+{
+    @Override
+    public int compare(int x, int y)
+    {
+
+        if (x.length() < y.length())
+        {
+            return -1;
+        }
+        if (x.length() > y.length())
+        {
+            return 1;
+        }
+        return 0;
+
+         ///////////         return (this.getCost().compareTo((Integer)other.getCost());//////////////////
+    }
 }
+
+
